@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5CABD2CC-D27E-479D-A98F-506B5A155694}</ProjectGuid>
+    <ProjectGuid>{665A5DEA-9298-4D79-A598-ED4E6841A546}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Layout</RootNamespace>
-    <AssemblyName>Layout</AssemblyName>
+    <RootNamespace>DocumentGenerator</RootNamespace>
+    <AssemblyName>DocumentGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Document.cs" />
+    <Compile Include="Document\Element\Alignment.cs" />
+    <Compile Include="Document\Element\Location.cs" />
+    <Compile Include="Document\Layout\Element\BaseElement.cs" />
+    <Compile Include="Document\Layout\Element\BaseTextElement.cs" />
+    <Compile Include="Document\Layout\Element\Date.cs" />
+    <Compile Include="Document\Layout\Element\Image.cs" />
+    <Compile Include="Document\Layout\Element\Number.cs" />
+    <Compile Include="Document\Layout\Element\Text.cs" />
+    <Compile Include="Document\Layout\Font.cs" />
+    <Compile Include="Document\Layout\LayoutDocument.cs" />
+    <Compile Include="Document\Layout\Shift.cs" />
+    <Compile Include="Document\Size.cs" />
+    <Compile Include="Document\Template\Default.cs" />
+    <Compile Include="Document\Template\Element\Date.cs" />
+    <Compile Include="Document\Template\Element\Image.cs" />
+    <Compile Include="Document\Template\Element\Number.cs" />
+    <Compile Include="Document\Template\Element\Text.cs" />
+    <Compile Include="Document\Template\Element\BaseTextElement.cs" />
+    <Compile Include="Document\Template\Font.cs" />
+    <Compile Include="Document\Template\Shift.cs" />
+    <Compile Include="Document\Template\TemplateDocument.cs" />
+    <Compile Include="Json\LayoutDocumentConverter.cs" />
+    <Compile Include="LayoutDrawer.cs" />
+    <Compile Include="Json\Parser.cs" />
+    <Compile Include="Json\TemplateDocumentConverter.cs" />
+    <Compile Include="Json\Values.cs" />
     <Compile Include="LayoutGenerator.cs" />
-    <Compile Include="JsonParser.cs" />
-    <Compile Include="LayoutParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Document\Template\Element\BaseElement.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
