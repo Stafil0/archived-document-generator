@@ -9,7 +9,7 @@ namespace DocumentGenerator.Document.Template.Element
 
         public override Layout.Element.BaseElement Generate(Default defaultValues)
         {
-            Layout.Element.Text text = new Layout.Element.Text();
+            Layout.Element.Text text = (Layout.Element.Text)base.Generate(new Layout.Element.Text(), defaultValues);
             string textValue = value != null ?
                 Utils.GetRandomStringFromArray(value) :
                 Utils.GetRandomValueFromFile(path);

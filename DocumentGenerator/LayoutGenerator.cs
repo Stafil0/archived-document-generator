@@ -40,35 +40,7 @@ namespace DocumentGenerator
 
             foreach (Document.Template.Element.BaseElement templateElement in templateDocument.elements)
             {
-                Document.Layout.Element.BaseElement layoutElement;
-
-                if (templateElement.GetType() != typeof(Document.Template.Element.Image))
-                {
-                    layoutElement = templateElement.Generate(templateDocument.defaultValues);
-                    string fontName = ((Document.Template.Element.BaseTextElement)templateElement).font != null ?
-                        Utils.GetRandomStringFromArray(((Document.Template.Element.BaseTextElement)templateElement).font.fontFamily) : null;
-                    ((Document.Layout.Element.BaseTextElement)layoutElement).font =
-                        Utils.GetRandomFontFromResources(
-                            (fontName != null && Utils.FontExists(fontName)) ?
-                                ((Document.Template.Element.BaseTextElement)templateElement).font :
-                                templateDocument.defaultValues.font
-                        );
-                    layoutElement.rotation = Utils.GetRandomTextRotationInRange(templateElement.rotation);
-                }
-                else
-                {
-                    layoutElement = templateElement.Generate(templateDocument.defaultValues);
-                    layoutElement.rotation = Utils.GetRandomIntInRange(templateElement.rotation);
-                }
-
-                layoutElement.type = templateElement.type;
-                layoutElement.location = templateElement.location;
-                layoutElement.alignmentX = Utils.GetRandomStringFromArray(templateElement.alignmentX ?? 
-                    templateDocument.defaultValues.alignmentX);
-                layoutElement.alignmentY = Utils.GetRandomStringFromArray(templateElement.alignmentY ??
-                    templateDocument.defaultValues.alignmentY);
-                layoutElement.shiftX = Utils.GetRandomIntInRange(templateElement.shiftX);
-                layoutElement.shiftY = Utils.GetRandomIntInRange(templateElement.shiftY);
+                Document.Layout.Element.BaseElement layoutElement = templateElement.Generate(templateDocument.defaultValues);
                 layoutDocument.elements.Add(layoutElement);
             }
         }

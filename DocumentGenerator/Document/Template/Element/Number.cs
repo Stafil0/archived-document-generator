@@ -9,7 +9,8 @@ namespace DocumentGenerator.Document.Template.Element
 
         public override Layout.Element.BaseElement Generate(Default defaultValues)
         {
-            Layout.Element.Number number = new Layout.Element.Number();
+            Layout.Element.Number number = 
+                (Layout.Element.Number)base.Generate(new Layout.Element.Number(), defaultValues);
             number.value = value != 0 ? value : Utils.GetRandomIntInRange(range);
 
             return number;

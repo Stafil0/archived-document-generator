@@ -42,7 +42,6 @@ namespace DocumentGenerator
         public static int GetRandomIntInRange(int[] range)
         {
             return range != null ? rand.Next(range[0], range[1] + 1) : 0;
-
         }
 
         public static string GetRandomValueFromFile(string path)

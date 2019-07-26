@@ -1,6 +1,6 @@
 ﻿namespace DocumentGenerator.Document.Element
 {
-    public class Alignment
+    public static class Alignment
     {
         public enum Horizontal
         {

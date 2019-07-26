@@ -9,13 +9,13 @@ namespace DocumentGenerator.Document.Template.Element
 
         public override Layout.Element.BaseElement Generate(Default defaultValues)
         {
-            Layout.Element.Date element = new Layout.Element.Date();
-            DateTime date = value != null ?
+            Layout.Element.Date date = (Layout.Element.Date)base.Generate(new Layout.Element.Date(), defaultValues);
+            DateTime dateTime = value != null ?
                 Utils.GetDateFromString(value, defaultValues.templateDateFormat) :
                 Utils.GetRandomDateInRange(range, defaultValues.templateDateFormat);
-            element.value = String.Format(format, date);
+            date.value = String.Format(format, dateTime);
 
-            return element;
+            return date;
         }
     }
 }

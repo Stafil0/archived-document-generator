@@ -8,7 +8,7 @@ namespace DocumentGenerator.Document.Template.Element
 
         public override Layout.Element.BaseElement Generate(Default defaultValues)
         {
-            Layout.Element.Image image = new Layout.Element.Image();
+            Layout.Element.Image image = (Layout.Element.Image)base.Generate(new Layout.Element.Image(), defaultValues);
             image.path = Utils.GetRandomStringFromArray(Directory.GetFiles(path));
 
             return image;
